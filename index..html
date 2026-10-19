@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos Transpetro 2026 🎀 Hello Kitty Pastel</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js para Gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Fonts: Comfortaa & Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuração do Tailwind alinhada à paleta da imagem de referência -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hk: {
+                            bg: '#FCE4EC',         // Rosa pastel de fundo da referência
+                            cardBg: '#FFF0F5',     // Rosa suave pastel dos ícones/widgets
+                            cardBorder: '#F8BBD0', // Bordas delicadas
+                            pinkText: '#B04B68',   // Tom marrom-rosé escuro da tipografia
+                            darkText: '#5D3A44',   // Cor dos textos principais igual à referência
+                            accent: '#F06292',     // Rosa laço vibrante
+                            yellow: '#FFE082',     // Amarelo pastel detalhes
+                            softWhite: '#FFFFFF',
+                            lightBrown: '#8D6E63'
+                        }
+                    },
+                    fontFamily: {
+                        comfortaa: ['Comfortaa', 'cursive'],
+                        nunito: ['Nunito', 'sans-serif']
+                    },
+                    borderRadius: {
+                        'widget': '28px',
+                        'icon': '22px'
+                    },
+                    boxShadow: {
+                        'soft-widget': '0 10px 25px -5px rgba(240, 98, 146, 0.15)',
+                        'icon-card': '0 4px 12px rgba(225, 140, 165, 0.2)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #F8D7E3;
+            background-image: 
+                radial-gradient(#F48FB1 1.2px, transparent 1.2px),
+                radial-gradient(#F48FB1 1.2px, #F8D7E3 1.2px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+            color: #5D3A44;
+        }
+
+        .title-font {
+            font-family: 'Comfortaa', cursive;
+        }
+
+        /* Animação suave para cards/widgets */
+        @keyframes float-soft {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .animate-float-soft {
+            animation: float-soft 5s ease-in-out infinite;
+        }
+
+        /* Custom Scrollbar Pastel */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8D7E3;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #F48FB1;
+            border-radius: 10px;
+        }
+
+        /* Custom Checkbox Estilo Ilustração Pastel */
+        .custom-checkbox {
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border: 2px solid #F06292;
+            border-radius: 8px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+            background-color: #FFF0F5;
+            flex-shrink: 0;
+        }
+
+        .custom-checkbox:checked {
+            background-color: #F06292;
+            border-color: #F06292;
+        }
+
+        .custom-checkbox:checked::after {
+            content: '🌸';
+            position: absolute;
+            top: -6px;
+            left: -1px;
+            font-size: 14px;
+        }
+
+        .tab-btn {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-btn.active {
+            background-color: #F06292;
+            color: white;
+            box-shadow: 0 4px 12px rgba(240, 98, 146, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12 antialiased">
+
+    <header class="max-w-6xl mx-auto px-4 pt-6 pb-2">
+        <div class="bg-hk-cardBg/90 backdrop-blur-md border-2 border-hk-cardBorder rounded-widget p-4 sm:p-5 shadow-soft-widget flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <!-- Ícone estilo App Icon Pastel com Flores -->
+                <div class="w-14 h-14 bg-white rounded-icon border-2 border-hk-cardBorder flex items-center justify-center shadow-icon-card flex-shrink-0 relative overflow-hidden">
+                    <span class="text-2xl animate-float-soft">🎀</span>
+                    <span class="absolute -top-1 -right-1 text-xs">🌸</span>
+                </div>
+                <div>
+                    <h1 class="title-font text-xl sm:text-2xl font-bold text-hk-darkText flex items-center gap-2">
+                        Estudos Transpetro 2026
+                        <span class="text-[10px] bg-hk-cardBorder/60 text-hk-pinkText px-2.5 py-0.5 rounded-full font-bold">Hello Kitty Style ✨</span>
+                    </h1>
+                    <p class="text-xs text-hk-pinkText font-bold mt-0.5">Cargo: Administração e Controle (Nível Médio) 🌸</p>
+                </div>
+            </div>
+
+            <button onclick="salvarEDispararBrilho()" class="bg-white hover:bg-hk-cardBg text-hk-pinkText border-2 border-hk-cardBorder px-5 py-2.5 rounded-widget text-xs font-bold shadow-icon-card transition-all transform hover:scale-105 active:scale-95 flex items-center gap-2">
+                <i class="fa-solid fa-heart text-hk-accent"></i>
+                Salvar Progresso
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 pt-4 space-y-6">
+
+        <!-- GRID DE CARDS/WIDGETS SUPERIORES -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            
+            <!-- WIDGET 1: CONTAGEM REGRESSIVA -->
+            <div class="bg-hk-cardBg p-5 rounded-widget border-2 border-hk-cardBorder shadow-soft-widget flex flex-col justify-between relative overflow-hidden">
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-hk-pinkText bg-white px-3 py-1 rounded-full border border-hk-cardBorder">Calendário 📅</span>
+                    <span class="text-base">🌸</span>
+                </div>
+                <div>
+                    <div class="text-3xl font-extrabold title-font text-hk-darkText mt-1" id="dias-totais-text">-- dias</div>
+                    <p class="text-xs text-hk-pinkText font-semibold mt-1">Data da Prova: <span class="font-extrabold text-hk-darkText">06/12/2026</span></p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-hk-cardBorder/60 flex justify-between items-center text-xs">
+                    <span class="text-hk-darkText font-bold">Dias Úteis (Seg-Sex):</span>
+                    <span class="font-extrabold text-hk-pinkText bg-white px-2.5 py-0.5 rounded-full border border-hk-cardBorder" id="dias-uteis-text">-- úteis</span>
+                </div>
+            </div>
+
+            <!-- WIDGET 2: PROGRESSO GERAL -->
+            <div class="bg-hk-cardBg p-5 rounded-widget border-2 border-hk-cardBorder shadow-soft-widget flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-hk-pinkText bg-white px-3 py-1 rounded-full border border-hk-cardBorder">Progresso Geral 📊</span>
+                        <span class="text-base">🎀</span>
+                    </div>
+                    <div class="flex items-baseline gap-2 mt-1">
+                        <span class="text-3xl font-extrabold title-font text-hk-accent" id="porcentagem-geral">0.0%</span>
+                        <span class="text-xs text-hk-pinkText font-bold" id="topicos-concluidos-text">(0/20)</span>
+                    </div>
+                </div>
+                <!-- Barra de Progresso Suave -->
+                <div class="mt-4">
+                    <div class="w-full bg-white rounded-full h-3 border border-hk-cardBorder overflow-hidden p-0.5">
+                        <div id="barra-progresso" class="bg-hk-accent h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                    <p class="text-[11px] text-hk-pinkText text-right mt-1.5 font-bold" id="frase-motivacional">Vamos aprender juntas! ✨</p>
+                </div>
+            </div>
+
+            <!-- WIDGET 3: HELLO KITTY COM KIMONO E LEQUE -->
+            <div class="bg-hk-cardBg p-4 rounded-widget border-2 border-hk-cardBorder shadow-soft-widget flex items-center justify-between relative overflow-hidden">
+                <div class="flex-1 pr-2">
+                    <div class="flex items-center gap-1.5 mb-1">
+                        <span class="text-base">🌸</span>
+                        <h3 class="title-font font-bold text-hk-darkText text-xs">Anotação da Kitty</h3>
+                    </div>
+                    <p class="text-[11px] text-hk-pinkText leading-relaxed font-bold">
+                        "Estude de segunda a sexta com muito carinho para curtir seu final de semana livre!" 💖
+                    </p>
+                    <div class="mt-2 bg-white/90 px-2.5 py-1 rounded-full border border-hk-cardBorder inline-block">
+                        <span class="text-[10px] font-extrabold text-hk-darkText" id="status-edital-badge">Em Andamento 🎀</span>
+                    </div>
+                </div>
+
+                <!-- Ilustração de Hello Kitty Kimono Pastel SVG -->
+                <div class="w-24 h-24 flex-shrink-0 flex items-center justify-center relative">
+                    <svg viewBox="0 0 100 100" class="w-full h-full text-hk-darkText">
+                        <!-- Cabeça Hello Kitty -->
+                        <ellipse cx="50" cy="38" rx="28" ry="22" fill="#FFFFFF" stroke="#6D4C57" stroke-width="2.5" />
+                        <!-- Olhos -->
+                        <ellipse cx="40" cy="38" rx="2.2" ry="3" fill="#6D4C57" />
+                        <ellipse cx="60" cy="38" rx="2.2" ry="3" fill="#6D4C57" />
+                        <!-- Nariz -->
+                        <ellipse cx="50" cy="42" rx="2.5" ry="1.8" fill="#FFE082" stroke="#6D4C57" stroke-width="1" />
+                        <!-- Bigodes -->
+                        <path d="M 20 36 L 10 34 M 20 40 L 8 40 M 20 44 L 10 46" stroke="#6D4C57" stroke-width="2" stroke-linecap="round" />
+                        <path d="M 80 36 L 90 34 M 80 40 L 92 40 M 80 44 L 90 46" stroke="#6D4C57" stroke-width="2" stroke-linecap="round" />
+                        <!-- Laço e Flores de Cabeça -->
+                        <circle cx="68" cy="22" r="6" fill="#F48FB1" stroke="#6D4C57" stroke-width="1.8" />
+                        <circle cx="60" cy="22" r="5" fill="#FFE082" stroke="#6D4C57" stroke-width="1.8" />
+                        <circle cx="74" cy="25" r="4.5" fill="#B39DDB" stroke="#6D4C57" stroke-width="1.8" />
+                        <!-- Corpo Kimono Pastel -->
+                        <path d="M 32 58 Q 50 55 68 58 L 74 90 Q 50 94 26 90 Z" fill="#E1BEE7" stroke="#6D4C57" stroke-width="2.5" />
+                        <path d="M 32 58 Q 50 72 68 58" fill="none" stroke="#F48FB1" stroke-width="3" />
+                        <!-- Leque (Sensu) -->
+                        <path d="M 35 85 Q 50 68 65 85 Z" fill="#FFE082" stroke="#6D4C57" stroke-width="2" />
+                        <path d="M 40 85 L 50 72 M 50 85 L 50 72 M 60 85 L 50 72" stroke="#6D4C57" stroke-width="1.5" />
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+            <!-- COLUNA ESQUERDA: CHECKLIST DAS MATÉRIAS (7 colunas) -->
+            <div class="lg:col-span-7 bg-hk-cardBg p-5 sm:p-6 rounded-widget border-2 border-hk-cardBorder shadow-soft-widget">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="title-font text-lg font-bold text-hk-darkText flex items-center gap-2">
+                        <i class="fa-solid fa-book-open text-hk-accent"></i>
+                        Edital Mapeado
+                    </h2>
+                    <span class="text-xs bg-white text-hk-pinkText px-3 py-1 rounded-full font-bold border border-hk-cardBorder">Checklist ✏️</span>
+                </div>
+
+                <!-- ABAS DAS MATÉRIAS -->
+                <div class="flex gap-2 overflow-x-auto pb-2 mb-4 scrollbar-none" id="abas-container">
+                    <!-- Gerado via JS -->
+                </div>
+
+                <!-- LISTA DE TÓPICOS -->
+                <div class="space-y-2.5 min-h-[280px]" id="lista-topicos-container">
+                    <!-- Gerado via JS -->
+                </div>
+            </div>
+
+            <!-- COLUNA DIREITA: CRONOGRAMA E GRÁFICO TIPO BARRA HORIZONTAL (5 colunas) -->
+            <div class="lg:col-span-5 space-y-6">
+
+                <!-- CARD CRONOGRAMA DIÁRIO AUTOMATIZADO -->
+                <div class="bg-hk-cardBg p-5 sm:p-6 rounded-widget border-2 border-hk-cardBorder shadow-soft-widget">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="title-font text-base font-bold text-hk-darkText flex items-center gap-2">
+                            <i class="fa-solid fa-calendar-day text-hk-accent"></i>
+                            Meta para Dia Útil
+                        </h2>
+                        <span class="text-[10px] bg-white text-hk-pinkText font-bold px-2.5 py-0.5 rounded-full border border-hk-cardBorder">Seg - Sex 🌷</span>
+                    </div>
+
+                    <div id="cronograma-box" class="bg-white/80 p-4 rounded-2xl border border-hk-cardBorder">
+                        <!-- Gerado via JS -->
+                    </div>
+                </div>
+
+                <!-- CARD GRÁFICO DE DESEMPENHO (BARRA HORIZONTAL CONFORME REFERÊNCIA) -->
+                <div class="bg-hk-cardBg p-5 sm:p-6 rounded-widget border-2 border-hk-cardBorder shadow-soft-widget">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="title-font text-base font-bold text-hk-darkText flex items-center gap-2">
+                            <i class="fa-solid fa-chart-bar text-hk-accent"></i>
+                            Desempenho por Área
+                        </h2>
+                        <span class="text-[10px] bg-white text-hk-pinkText font-bold px-2.5 py-0.5 rounded-full border border-hk-cardBorder">Progresso 📊</span>
+                    </div>
+
+                    <div class="relative h-[250px] w-full flex items-center justify-center p-1">
+                        <canvas id="graficoDesempenho"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="max-w-6xl mx-auto px-4 mt-8 text-center text-xs text-hk-pinkText font-bold space-y-1">
+        <p>Transpetro 2026 • Hello Kitty & Friends Pastel Study 🌸</p>
+        <p class="text-[11px] text-hk-darkText">Inspirado em layouts kawaii para te ajudar a conquistar sua vaga! 🩷🎀</p>
+    </footer>
+
+    <!-- NOTIFICAÇÃO TOAST FOFA -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-white text-hk-darkText border-2 border-hk-cardBorder px-5 py-3 rounded-widget shadow-soft-widget flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 z-50 font-bold text-xs">
+        <span class="text-lg">💖</span>
+        <span id="toast-message">Progresso salvo com sucesso!</span>
+    </div>
+
+    <script>
+        const DATA_PROVA = new Date('2026-12-06T00:00:00');
+        const CHAVE_LOCAL_STORAGE = 'transpetro_hk_estudos_pastel_v2';
+
+        const MATERIAS = {
+            "Conhecimentos Gerais": [
+                "Língua Portuguesa (Compreensão, Coesão, Gramática, Crase, Pontuação)",
+                "Matemática (Conjuntos, Razão/Proporção, Funções, Equações, Estatística, Matemática Financeira, Geometria)"
+            ],
+            "Administração": [
+                "Recursos Humanos (Recrutamento, Seleção, PCCR, Treinamento, Desempenho)",
+                "Sistema de Gestão Integrado (SGI, Auditorias, Melhoria Contínua)",
+                "Função Administração Patrimonial (Controle, Inventário, Depreciação)",
+                "Gestão da Manutenção (Preventiva, Corretiva, Preditiva, Planejamento)",
+                "Gestão de Indicadores e ESG"
+            ],
+            "Contabilidade": [
+                "Matemática Financeira (Juros Simples, Compostos, Descontos)",
+                "Registros Contábeis e Obrigações Acessórias (EC 132/2023, LC 214/2025)",
+                "Fluxo de Caixa (Direto, Indireto, Orçamento)",
+                "Balanço Patrimonial e DRE"
+            ],
+            "Logística": [
+                "Logística, Sustentabilidade e Logística Verde",
+                "Modalidades de Transporte e Intermodalidade",
+                "Gestão de Estoques e Armazenagem",
+                "Gestão de Compras e Licitações (Lei 13.303/2016 e Lei 14.133/2021)",
+                "Gestão de Contratos e Fiscalização"
+            ],
+            "Informática": [
+                "Fundamentos de Computação e Windows 11",
+                "Pacote Office 2024 (Word, Excel, PowerPoint)",
+                "Internet, Intranet e Segurança da Informação",
+                "Lei Geral de Proteção de Dados (LGPD - Lei 13.709/2018)"
+            ]
+        };
+
+        let progresso = {};
+        let abaAtiva = "Conhecimentos Gerais";
+        let meuGrafico = null;
+
+        function carregarDados() {
+            const salvo = localStorage.getItem(CHAVE_LOCAL_STORAGE);
+            if (salvo) {
+                try {
+                    progresso = JSON.parse(salvo);
+                } catch (e) {
+                    progresso = {};
+                }
+            }
+            
+            Object.values(MATERIAS).flat().forEach(topico => {
+                if (progresso[topico] === undefined) {
+                    progresso[topico] = false;
+                }
+            });
+        }
+
+        function salvarDados() {
+            localStorage.setItem(CHAVE_LOCAL_STORAGE, JSON.stringify(progresso));
+        }
+
+        function calcularDias() {
+            const hoje = new Date();
+            const diferencaTempo = DATA_PROVA - hoje;
+            const diasTotais = Math.max(0, Math.ceil(diferencaTempo / (1000 * 60 * 60 * 24)));
+
+            let diasUteis = 0;
+            let dataTemp = new Date(hoje);
+            dataTemp.setDate(dataTemp.getDate() + 1);
+
+            while (dataTemp <= DATA_PROVA) {
+                const diaSemana = dataTemp.getDay();
+                if (diaSemana !== 0 && diaSemana !== 6) {
+                    diasUteis++;
+                }
+                dataTemp.setDate(dataTemp.getDate() + 1);
+            }
+
+            document.getElementById('dias-totais-text').innerText = `${diasTotais} dias`;
+            document.getElementById('dias-uteis-text').innerText = `${diasUteis} dias úteis`;
+
+            return { diasTotais, diasUteis, hoje };
+        }
+
+        function renderizarAbas() {
+            const abasContainer = document.getElementById('abas-container');
+            abasContainer.innerHTML = '';
+
+            Object.keys(MATERIAS).forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = `tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border-2 border-hk-cardBorder ${cat === abaAtiva ? 'active' : 'bg-white text-hk-darkText hover:bg-hk-cardBg'}`;
+                
+                let icone = '🌸';
+                if (cat === 'Administração') icone = '💼';
+                if (cat === 'Contabilidade') icone = '📊';
+                if (cat === 'Logística') icone = '📦';
+                if (cat === 'Informática') icone = '💻';
+
+                btn.innerHTML = `${icone} ${cat}`;
+                btn.onclick = () => {
+                    abaAtiva = cat;
+                    renderizarAbas();
+                    renderizarTopicos();
+                };
+                abasContainer.appendChild(btn);
+            });
+        }
+
+        function renderizarTopicos() {
+            const container = document.getElementById('lista-topicos-container');
+            container.innerHTML = '';
+
+            const lista = MATERIAS[abaAtiva] || [];
+
+            lista.forEach((topico) => {
+                const checked = progresso[topico] || false;
+
+                const item = document.createElement('label');
+                item.className = `flex items-start gap-3 p-3 rounded-2xl border-2 transition-all cursor-pointer ${checked ? 'bg-white/60 border-hk-cardBorder opacity-80' : 'bg-white border-hk-cardBorder hover:border-hk-accent shadow-sm'}`;
+
+                item.innerHTML = `
+                    <input type="checkbox" class="custom-checkbox mt-0.5" ${checked ? 'checked' : ''} onchange="alternarTopico('${topico.replace(/'/g, "\\'")}')">
+                    <div class="flex-1">
+                        <span class="text-xs sm:text-sm font-bold ${checked ? 'line-through text-hk-pinkText/60' : 'text-hk-darkText'}">${topico}</span>
+                    </div>
+                `;
+
+                container.appendChild(item);
+            });
+        }
+
+        function alternarTopico(topico) {
+            progresso[topico] = !progresso[topico];
+            salvarDados();
+            atualizarPainelGeral();
+        }
+
+        function atualizarPainelGeral() {
+            renderizarTopicos();
+
+            const todosTopicos = Object.values(MATERIAS).flat();
+            const total = todosTopicos.length;
+            const concluidos = todosTopicos.filter(t => progresso[t]).length;
+            const porcentagemGeral = total > 0 ? ((concluidos / total) * 100).toFixed(1) : 0;
+
+            document.getElementById('porcentagem-geral').innerText = `${porcentagemGeral}%`;
+            document.getElementById('topicos-concluidos-text').innerText = `(${concluidos}/${total})`;
+            document.getElementById('barra-progresso').style.width = `${porcentagemGeral}%`;
+
+            const fraseEl = document.getElementById('frase-motivacional');
+            if (porcentagemGeral == 100) {
+                fraseEl.innerText = "👑 Maravilhosa! Você zerou todo o edital!";
+                document.getElementById('status-edital-badge').innerText = "100% Concluído 🎉";
+            } else if (porcentagemGeral > 50) {
+                fraseEl.innerText = "Você passou da metade! Continue firme! ✨";
+                document.getElementById('status-edital-badge').innerText = "Ritmo Acelerado 🚀";
+            } else {
+                fraseEl.innerText = "Um passo por dia com foco! 🌸";
+                document.getElementById('status-edital-badge').innerText = "Em Andamento 🎀";
+            }
+
+            atualizarGrafico();
+            atualizarCronogramaDiario();
+        }
+
+        function atualizarGrafico() {
+            const categorias = Object.keys(MATERIAS);
+            const percentuais = categorias.map(cat => {
+                const lista = MATERIAS[cat];
+                const done = lista.filter(t => progresso[t]).length;
+                return lista.length > 0 ? Math.round((done / lista.length) * 100) : 0;
+            });
+
+            const ctx = document.getElementById('graficoDesempenho').getContext('2d');
+
+            if (meuGrafico) {
+                meuGrafico.destroy();
+            }
+
+            // Criando Gráfico de Barras Horizontais (estilo da imagem de referência)
+            meuGrafico = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Gerais', 'Admin.', 'Contab.', 'Logística', 'Inform.'],
+                    datasets: [{
+                        label: '% Concluído',
+                        data: percentuais,
+                        backgroundColor: [
+                            '#F48FB1', // Rosa pastel
+                            '#F06292', // Rosa médio
+                            '#FFE082', // Amarelo pastel
+                            '#CE93D8', // Roxo pastel
+                            '#80CBC4'  // Verde água pastel
+                        ],
+                        borderRadius: 8,
+                        borderWidth: 1.5,
+                        borderColor: '#5D3A44',
+                        barThickness: 16
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // Define o gráfico como de barras horizontais
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false // Oculta a legenda para manter visual limpo
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` Concluído: ${context.parsed.x}%`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            min: 0,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) { return value + '%'; },
+                                font: { family: 'Nunito', size: 10, weight: 'bold' },
+                                color: '#5D3A44'
+                            },
+                            grid: {
+                                color: 'rgba(248, 187, 208, 0.4)'
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                font: { family: 'Nunito', size: 11, weight: 'bold' },
+                                color: '#5D3A44'
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function atualizarCronogramaDiario() {
+            const cronoBox = document.getElementById('cronograma-box');
+            const { diasUteis, hoje } = calcularDias();
+
+            const pendentes = [];
+            Object.keys(MATERIAS).forEach(cat => {
+                MATERIAS[cat].forEach(topico => {
+                    if (!progresso[topico]) {
+                        pendentes.push({ categoria: cat, topico: topico });
+                    }
+                });
+            });
+
+            const diaSemana = hoje.getDay();
+            const ehFimDeSemana = (diaSemana === 0 || diaSemana === 6);
+
+            if (pendentes.length === 0) {
+                cronoBox.innerHTML = `
+                    <div class="text-center py-2 space-y-1">
+                        <span class="text-2xl">👑</span>
+                        <p class="font-extrabold text-hk-darkText text-xs">Edital Concluído!</p>
+                        <p class="text-[11px] text-hk-pinkText font-semibold">Reserve seus dias úteis para revisões e simulados!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const topicosPorDia = Math.max(1, Math.ceil(pendentes.length / Math.max(1, diasUteis)));
+            const metaHoje = pendentes.slice(0, topicosPorDia);
+
+            let htmlSugerido = '';
+            if (ehFimDeSemana) {
+                htmlSugerido += `
+                    <div class="bg-hk-yellow/40 p-2 rounded-xl border border-hk-yellow mb-2 text-[11px] text-hk-darkText font-bold flex items-center gap-2">
+                        <span>🍵</span>
+                        <span>Fim de semana! Descanse bastante. Veja os tópicos de estudo para segunda:</span>
+                    </div>
+                `;
+            }
+
+            htmlSugerido += `
+                <p class="text-[11px] font-bold text-hk-darkText mb-2 flex items-center justify-between">
+                    <span>📌 Tópico(s) para o próximo dia útil:</span>
+                    <span class="text-[10px] bg-white px-2.5 py-0.5 rounded-full border border-hk-cardBorder font-extrabold text-hk-pinkText">${metaHoje.length} tópico(s)</span>
+                </p>
+                <div class="space-y-2">
+            `;
+
+            metaHoje.forEach((item, i) => {
+                htmlSugerido += `
+                    <div class="bg-white p-3 rounded-2xl border-2 border-hk-cardBorder flex items-start gap-2.5 shadow-sm hover:border-hk-accent transition-all">
+                        <span class="text-hk-accent font-black text-xs bg-hk-cardBg w-5 h-5 rounded-full flex items-center justify-center border border-hk-cardBorder flex-shrink-0 mt-0.5">${i + 1}</span>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <span class="text-[9px] font-black uppercase bg-hk-cardBg text-hk-pinkText px-2 py-0.5 rounded-md border border-hk-cardBorder">${item.categoria}</span>
+                            </div>
+                            <p class="text-xs font-extrabold text-hk-darkText leading-snug">
+                                <i class="fa-solid fa-book-bookmark text-hk-accent/80 text-[10px] mr-1"></i>
+                                ${item.topico}
+                            </p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            htmlSugerido += `
+                </div>
+                <div class="mt-3 pt-2 border-t border-hk-cardBorder/60 flex items-center justify-between text-[10px] text-hk-pinkText font-bold">
+                    <span>Restam <b>${pendentes.length}</b> tópico(s) no total</span>
+                    <span><b>${diasUteis}</b> dias úteis</span>
+                </div>
+            `;
+
+            cronoBox.innerHTML = htmlSugerido;
+        }
+
+        function salvarEDispararBrilho() {
+            salvarDados();
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 2500);
+        }
+
+        window.onload = function() {
+            carregarDados();
+            calcularDias();
+            renderizarAbas();
+            atualizarPainelGeral();
+        };
+    </script>
+</body>
+</html>
